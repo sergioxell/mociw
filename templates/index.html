@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mociw</title>
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0b1522;
+            overflow: hidden;
+        }
+        .love{
+            height: 70px;
+            width: 70px;
+            background-color: pink;
+            position: absolute;
+            transform: rotate(-45deg);
+            cursor: pointer;
+        }
+        .love::before{
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: pink;
+            top: -50%;
+            border-radius: 50px;
+
+        }
+        .love::after{
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: pink;
+            right: -50%;
+            border-radius: 50px;
+        }
+        .love:hover{
+            animation: scaleLove 0.6s linear infinite;
+            box-shadow: 10px 10px 90px pink;
+        }
+        @keyframes scaleLove {
+            0%{
+                transform: rotate(-45deg) scale(1.1);
+            }
+            100%{
+                transform: rotate(-45deg) scale(1.0);
+            }
+        }
+        .container .text{
+            position: relative;
+            color: white;
+            font-size: 30px;
+            font-weight: 600;
+            top: 180px;
+        }
+        .container .text::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #0b1522;
+            border-left: 2px solid pink;
+            animation: animate 4s steps(12) infinite;
+        }
+        @keyframes animate{
+            40%, 60%{
+                left: 100%;   
+            }
+            100%{
+                left: 10%;   
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="love">
+
+    </div>
+    <div class="container">
+        <span class="text"></span>
+    </div>
+
+    <script>
+        const text = document.querySelector(".text");
+        const textLoad = () =>{
+            setTimeout(() =>{
+                text.textContent = "Can you feel my heartbeat, Mou?";
+            },0);
+        }
+        textLoad();
+    </script>
+</body>
+
+</html>
